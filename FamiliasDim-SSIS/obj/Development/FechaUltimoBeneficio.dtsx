@@ -1,0 +1,733 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/23/2024 8:40:43 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-LMQN57T"
+  DTS:CreatorName="DESKTOP-LMQN57T\USER"
+  DTS:DTSID="{CBC81067-C289-43FF-A82F-732D70C9F839}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5467.0"
+  DTS:LocaleID="22538"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{45481A94-EAB1-4F2F-A657-B70D3F2D68F2}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.FamiliasDim.sa]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{2176DC68-7280-4BE1-B571-FCEFCF809BB4}"
+      DTS:ObjectName="localhost.FamiliasDim.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=FamiliasDim;Persist Security Info=True;Application Name=SSIS-Package1-{2176DC68-7280-4BE1-B571-FCEFCF809BB4}localhost.FamiliasDim.sa;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARSnQfc7hQk+bwl0eXdWJSgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAARNV3oBwml8z/2Zg/F7OL9q7XRWIYfqOrKM1i4mYH8FQAAAAAOgAAAAAIAACAAAAAazTWc91RFZhA6gucnBbYl4cUdlTU6lD6w80/z5GvhOiAAAAB3r+BK6/cvPoI16lnv5lOzBlfezF1HdrGIwSchkEGFcUAAAADHoZ2Q13gxJcv3EOb5nTJnMwwUlkLGTKGgUk06HYkpiNcyC4yW62boQH7t1OErlhqIH9Md1VAbDKTyxJ6gsLQV</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.FamiliasDWH.sa]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{C7CC5D9F-DE66-4793-BC46-F499B4668C4E}"
+      DTS:ObjectName="localhost.FamiliasDWH.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=FamiliasDWH;Persist Security Info=True;Application Name=SSIS-Package1-{C7CC5D9F-DE66-4793-BC46-F499B4668C4E}localhost.FamiliasDWH.sa;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARSnQfc7hQk+bwl0eXdWJSgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB0NChhqPGmdnqCaCRnirDSQO05txxQUHKZbsfUPhzF4wAAAAAOgAAAAAIAACAAAACYukax1l/cmsnorupwI86DqPplL3hFP2nRHB8sysbVIiAAAADSwlJWOfagQk+x+lIcL9/9uC7bMQuUE2hXb73gB8djiEAAAADV5w0y+DmrbDozxEmum2MU1vX3+Mc9kMn8L9oShGVYgH2BTzeKrOmI1VjZXJqmKpd+hw2pHkReDZUb6pdzf1pn</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.FamiliasDWH.sa1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{59A6620C-1B23-4D05-ABC7-71BF926CE8D0}"
+      DTS:ObjectName="localhost.FamiliasDWH.sa1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=FamiliasDWH;Provider=SQLOLEDB.1;Persist Security Info=True;Application Name=SSIS-Package1-{59A6620C-1B23-4D05-ABC7-71BF926CE8D0}localhost.FamiliasDWH.sa1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARSnQfc7hQk+bwl0eXdWJSgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAuDzdGpbsBPSvEQpXf2ha6sWJpGulXXJi1jSR0QJR8EwAAAAAOgAAAAAIAACAAAABzHMg+82jf18YiOuGPCCN3/Fje69ghkjqoQLpYR+BWeiAAAACPX6G83GLY4rZgt+1Nd0btThtHn6loj6Jq5yi67KJklEAAAADB3u4qEhodhSsmSOuJVfewdoB9YMIupz5/huYo2VkK8S1eKLlwhLCitWBroHkykgtvsxHbyDZne71wlK2eK0MH</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\delete DimFechaUltimoBeneficioAsignado"
+      DTS:CreationName="Microsoft.DbMaintenanceTSQLExecuteTask"
+      DTS:Description="Tarea Ejecutar instrucción T-SQL"
+      DTS:DTSID="{E65C0364-C8BA-44C4-8BFD-7DC197DC76DB}"
+      DTS:ExecutableType="Microsoft.DbMaintenanceTSQLExecuteTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="delete DimFechaUltimoBeneficioAsignado"
+      DTS:TaskContact="Execute T-SQL Statement Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2176DC68-7280-4BE1-B571-FCEFCF809BB4}"
+          SQLTask:SqlStatementSource="delete from DimFechaUltimoBeneficioAsignado;"
+          SQLTask:ServerVersion="9"
+          SQLTask:ExtendedLogging="True"
+          SQLTask:LocalConnectionForLogging=""
+          SQLTask:TaskName=""
+          SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DimFechaUltimoBeneficioAsignado"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{4BC08A74-13EF-467D-B107-76471746FC0D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DimFechaUltimoBeneficioAsignado">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DimFechaUltimoBeneficioAsignado\BeneficiarioDWH"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="BeneficiarioDWH"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT (b.FechaUltimoBeneficioAsignado) 
+FROM Beneficiario b
+ORDER BY FechaUltimoBeneficioAsignado;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimFechaUltimoBeneficioAsignado\BeneficiarioDWH.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.FamiliasDWH.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.FamiliasDWH.sa]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DimFechaUltimoBeneficioAsignado\BeneficiarioDWH.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\BeneficiarioDWH.Outputs[Salida de origen de ADO NET].Columns[FechaUltimoBeneficioAsignado]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimFechaUltimoBeneficioAsignado\BeneficiarioDWH.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaUltimoBeneficioAsignado]"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\BeneficiarioDWH.Outputs[Salida de origen de ADO NET].Columns[FechaUltimoBeneficioAsignado]"
+                      name="FechaUltimoBeneficioAsignado"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\BeneficiarioDWH.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaUltimoBeneficioAsignado]"
+                      dataType="dbTimeStamp"
+                      name="FechaUltimoBeneficioAsignado" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DimFechaUltimoBeneficioAsignado\BeneficiarioDWH.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\BeneficiarioDWH.Outputs[Salida de error de origen de ADO NET].Columns[FechaUltimoBeneficioAsignado]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\BeneficiarioDWH.Outputs[Salida de error de origen de ADO NET].Columns[FechaUltimoBeneficioAsignado]"
+                      name="FechaUltimoBeneficioAsignado" />
+                    <outputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\BeneficiarioDWH.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\BeneficiarioDWH.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\BeneficiarioDWH.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\BeneficiarioDWH.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="DimFechaUltimoBeneficioAsignado"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DimFechaUltimoBeneficioAsignado"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.FamiliasDim.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.FamiliasDim.sa]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].Columns[FechaUltimoBeneficioAsignado]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaUltimoBeneficioAsignado"
+                      externalMetadataColumnId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].ExternalColumns[FechaUltimoBeneficioAsignado]"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\BeneficiarioDWH.Outputs[Salida de origen de ADO NET].Columns[FechaUltimoBeneficioAsignado]" />
+                    <inputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].Columns[Year]"
+                      cachedDataType="i4"
+                      cachedName="Year"
+                      externalMetadataColumnId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].ExternalColumns[Year]"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de columna derivada].Columns[Year]" />
+                    <inputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].Columns[Month]"
+                      cachedDataType="i4"
+                      cachedName="Month"
+                      externalMetadataColumnId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].ExternalColumns[Month]"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de columna derivada].Columns[Month]" />
+                    <inputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].Columns[Day]"
+                      cachedDataType="i4"
+                      cachedName="Day"
+                      externalMetadataColumnId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].ExternalColumns[Day]"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de columna derivada].Columns[Day]" />
+                    <inputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].Columns[Quarter]"
+                      cachedDataType="i2"
+                      cachedName="Quarter"
+                      externalMetadataColumnId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].ExternalColumns[Quarter]"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de columna derivada].Columns[Quarter]" />
+                    <inputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].Columns[Week]"
+                      cachedDataType="i4"
+                      cachedName="Week"
+                      externalMetadataColumnId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].ExternalColumns[Week]"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de columna derivada].Columns[Week]" />
+                    <inputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].Columns[WeekDay]"
+                      cachedDataType="i4"
+                      cachedName="WeekDay"
+                      externalMetadataColumnId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].ExternalColumns[WeekDay]"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de columna derivada].Columns[WeekDay]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].ExternalColumns[FechaUltimoBeneficioAsignado]"
+                      dataType="dbTimeStamp"
+                      name="FechaUltimoBeneficioAsignado" />
+                    <externalMetadataColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].ExternalColumns[Year]"
+                      dataType="i4"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].ExternalColumns[Month]"
+                      dataType="i4"
+                      name="Month" />
+                    <externalMetadataColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].ExternalColumns[Day]"
+                      dataType="i4"
+                      name="Day" />
+                    <externalMetadataColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].ExternalColumns[Quarter]"
+                      dataType="i4"
+                      name="Quarter" />
+                    <externalMetadataColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].ExternalColumns[Week]"
+                      dataType="i4"
+                      name="Week" />
+                    <externalMetadataColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].ExternalColumns[WeekDay]"
+                      dataType="i4"
+                      name="WeekDay" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimFechaUltimoBeneficioAsignado\Extraer"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
+              name="Extraer"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Inputs[Entrada de columna derivada]"
+                  description="Entrada en la transformación Columna derivada"
+                  name="Entrada de columna derivada">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Inputs[Entrada de columna derivada].Columns[FechaInscripcionBeneficiario]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaInscripcionBeneficiario"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\524:invalid" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de columna derivada]"
+                  description="Salida predeterminada de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  name="Salida de columna derivada"
+                  synchronousInputId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de columna derivada].Columns[Year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de columna derivada].Columns[Year]"
+                      name="Year"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[YEAR](#{Package\DimFechaUltimoBeneficioAsignado\524:invalid})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">YEAR(FechaInscripcionBeneficiario)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de columna derivada].Columns[Month]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de columna derivada].Columns[Month]"
+                      name="Month"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[MONTH](#{Package\DimFechaUltimoBeneficioAsignado\524:invalid})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">MONTH(FechaInscripcionBeneficiario)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de columna derivada].Columns[Day]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de columna derivada].Columns[Day]"
+                      name="Day"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[DAY](#{Package\DimFechaUltimoBeneficioAsignado\524:invalid})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DAY(FechaInscripcionBeneficiario)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de columna derivada].Columns[Quarter]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de columna derivada].Columns[Quarter]"
+                      name="Quarter"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">(DT_I2)(([DATEPART]("MM",#{Package\DimFechaUltimoBeneficioAsignado\524:invalid}) - 1) / 3 + 1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I2)((DATEPART("MM",FechaInscripcionBeneficiario) - 1) / 3 + 1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de columna derivada].Columns[Week]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de columna derivada].Columns[Week]"
+                      name="Week"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[DATEPART]("WK",#{Package\DimFechaUltimoBeneficioAsignado\524:invalid})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEPART("WK",FechaInscripcionBeneficiario)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de columna derivada].Columns[WeekDay]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Cálculo"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de columna derivada].Columns[WeekDay]"
+                      name="WeekDay"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión de columna derivada"
+                          name="Expression">[DATEPART]("DW",#{Package\DimFechaUltimoBeneficioAsignado\524:invalid})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expresión descriptiva de columna derivada"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEPART("DW",FechaInscripcionBeneficiario)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de error de columna derivada]"
+                  description="Salida de error de la transformación Columna derivada"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de columna derivada"
+                  synchronousInputId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Inputs[Entrada de columna derivada]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DimFechaUltimoBeneficioAsignado.Paths[Salida de columna derivada]"
+              endId="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de columna derivada"
+              startId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\DimFechaUltimoBeneficioAsignado.Paths[Salida de origen de ADO NET]"
+              endId="Package\DimFechaUltimoBeneficioAsignado\Extraer.Inputs[Entrada de columna derivada]"
+              name="Salida de origen de ADO NET"
+              startId="Package\DimFechaUltimoBeneficioAsignado\BeneficiarioDWH.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{85EA3B84-7A74-4040-B6A1-D58549C06D72}"
+      DTS:From="Package\delete DimFechaUltimoBeneficioAsignado"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\DimFechaUltimoBeneficioAsignado" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="285,42"
+          Id="Package\delete DimFechaUltimoBeneficioAsignado"
+          TopLeft="273,221" />
+        <NodeLayout
+          Size="252,42"
+          Id="Package\DimFechaUltimoBeneficioAsignado"
+          TopLeft="265.5,350.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="415.5,263">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-24,87.5"
+              Start="0,0"
+              End="-24,80">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.75"
+                    Point2="0,43.75"
+                    Point3="-4,43.75" />
+                  <mssgle:LineSegment
+                    End="-20,43.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20,43.75"
+                    Point2="-24,43.75"
+                    Point3="-24,47.75" />
+                  <mssgle:LineSegment
+                    End="-24,80" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DimFechaUltimoBeneficioAsignado">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="252,42"
+          Id="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado"
+          TopLeft="332,312" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\DimFechaUltimoBeneficioAsignado\BeneficiarioDWH"
+          TopLeft="236,138" />
+        <NodeLayout
+          Size="114,42"
+          Id="Package\DimFechaUltimoBeneficioAsignado\Extraer"
+          TopLeft="564,224" />
+        <EdgeLayout
+          Id="Package\DimFechaUltimoBeneficioAsignado.Paths[Salida de origen de ADO NET]"
+          TopLeft="317.5,180">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="303.5,44"
+              Start="0,0"
+              End="303.5,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18"
+                    Point2="0,22"
+                    Point3="4,22" />
+                  <mssgle:LineSegment
+                    End="299.5,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="299.5,22"
+                    Point2="303.5,22"
+                    Point3="303.5,26" />
+                  <mssgle:LineSegment
+                    End="303.5,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="143.75,27,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DimFechaUltimoBeneficioAsignado.Paths[Salida de columna derivada]"
+          TopLeft="621,266">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-163,46"
+              Start="0,0"
+              End="-163,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="-4,23" />
+                  <mssgle:LineSegment
+                    End="-159,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-159,23"
+                    Point2="-163,23"
+                    Point3="-163,27" />
+                  <mssgle:LineSegment
+                    End="-163,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimFechaUltimoBeneficioAsignado\DimFechaUltimoBeneficioAsignado">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimFechaUltimoBeneficioAsignado\BeneficiarioDWH">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

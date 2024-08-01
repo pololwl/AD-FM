@@ -1,0 +1,923 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/23/2024 9:55:50 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-LMQN57T"
+  DTS:CreatorName="DESKTOP-LMQN57T\USER"
+  DTS:DTSID="{9348438F-0F1F-4CD2-8355-0A6AB996848E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5467.0"
+  DTS:LocaleID="22538"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{540CDF92-65E2-4C2F-8B3A-A621F0F4F802}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.FamiliasDim.sa]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{0CFD0455-8438-4C9E-AEBF-95C95528E7BE}"
+      DTS:ObjectName="localhost.FamiliasDim.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=FamiliasDim;Persist Security Info=True;Application Name=SSIS-Package1-{0CFD0455-8438-4C9E-AEBF-95C95528E7BE}localhost.FamiliasDim.sa;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARSnQfc7hQk+bwl0eXdWJSgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACivHi6Efi1Ocjw4E4BJt4oPWxtM9WxiD7d9lJFjxhF1wAAAAAOgAAAAAIAACAAAAAXWGTjbFgG8WAaCZqmhE/IKXZfEkCWNlWKOnSt2hmfPyAAAABt7GWTJOww2/GUyVLbzXT2uY2sr/YmOOsVL9V6fmBBDEAAAABPb6kj5tAfdFWtyR+QLa8taIkjEJk1J/i32j1LQ8/XBK+urub//qtLzjnmLFla3oTB3YWLb3Ub27LGrZcqz4Cl</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.FamiliasDWH.sa]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{FD996715-F3E2-445A-A25C-4264EBDAB393}"
+      DTS:ObjectName="localhost.FamiliasDWH.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=FamiliasDWH;Persist Security Info=True;Application Name=SSIS-Package1-{FD996715-F3E2-445A-A25C-4264EBDAB393}localhost.FamiliasDWH.sa;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARSnQfc7hQk+bwl0eXdWJSgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACRjlRW4ms5gMC4/WdlodcRkNUlYvNdSn4D3PwwjflWRgAAAAAOgAAAAAIAACAAAAAjbqlYGfiQHPbT77L9TZXWO8wefHvexP+iDAuvYWH+9SAAAAB73MXcp5cS6h6lhk1zCWKx4CNAUIHv6qXvII6U0V0aq0AAAADKbPnCZfezdRWbGKm4L/NfHk/cRx+8RPOxXZmzDuel0/Y725Rs7bQrab+b6McmJQ5ivKr9MElH0OQGfkNQa19h</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\delete FactBeneficiario"
+      DTS:CreationName="Microsoft.DbMaintenanceTSQLExecuteTask"
+      DTS:Description="Tarea Ejecutar instrucción T-SQL"
+      DTS:DTSID="{E69BBB7C-D883-4975-802E-214F0F9ED69F}"
+      DTS:ExecutableType="Microsoft.DbMaintenanceTSQLExecuteTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="delete FactBeneficiario"
+      DTS:TaskContact="Execute T-SQL Statement Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0CFD0455-8438-4C9E-AEBF-95C95528E7BE}"
+          SQLTask:SqlStatementSource="delete from FactBeneficiario;"
+          SQLTask:ServerVersion="9"
+          SQLTask:ExtendedLogging="True"
+          SQLTask:LocalConnectionForLogging=""
+          SQLTask:TaskName=""
+          SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FactBeneficiario"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{CA3A4D33-C3EC-4E8D-96F1-85521B4D6A5D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FactBeneficiario">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\FactBeneficiario\FamiliasDWHBeneficiario"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="FamiliasDWHBeneficiario"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Beneficiario"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.FamiliasDWH.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.FamiliasDWH.sa]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdBeneficiario]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdBeneficiario]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdBeneficiario]"
+                      name="IdBeneficiario"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[FechaInscripcionBeneficiario]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaInscripcionBeneficiario]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[FechaInscripcionBeneficiario]"
+                      name="FechaInscripcionBeneficiario"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[FechaUltimoBeneficioAsignado]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaUltimoBeneficioAsignado]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[FechaUltimoBeneficioAsignado]"
+                      name="FechaUltimoBeneficioAsignado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[CantidadDeBeneficiarios]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[CantidadDeBeneficiarios]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[CantidadDeBeneficiarios]"
+                      name="CantidadDeBeneficiarios"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdMunicipio]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdMunicipio]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdMunicipio]"
+                      name="IdMunicipio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdDiscapacidad]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdDiscapacidad]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdDiscapacidad]"
+                      name="IdDiscapacidad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdEstadoBeneficiario]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdEstadoBeneficiario]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdEstadoBeneficiario]"
+                      name="IdEstadoBeneficiario"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdEtnia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdEtnia]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdEtnia]"
+                      name="IdEtnia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdGenero]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdGenero]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdGenero]"
+                      name="IdGenero"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdNivelEscolaridad]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdNivelEscolaridad]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdNivelEscolaridad]"
+                      name="IdNivelEscolaridad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdRangoBeneficioConsolidadoAsignado]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdRangoBeneficioConsolidadoAsignado]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdRangoBeneficioConsolidadoAsignado]"
+                      name="IdRangoBeneficioConsolidadoAsignado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdRangoEdad]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdRangoEdad]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdRangoEdad]"
+                      name="IdRangoEdad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdRangoUltimoBeneficioAsignado]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdRangoUltimoBeneficioAsignado]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdRangoUltimoBeneficioAsignado]"
+                      name="IdRangoUltimoBeneficioAsignado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdTipoAsignacionBeneficio]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdTipoAsignacionBeneficio]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdTipoAsignacionBeneficio]"
+                      name="IdTipoAsignacionBeneficio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdTipoDocumento]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdTipoDocumento]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdTipoDocumento]"
+                      name="IdTipoDocumento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdTipoPoblacion]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdTipoPoblacion]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdTipoPoblacion]"
+                      name="IdTipoPoblacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdTitular]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdTitular]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdTitular]"
+                      name="IdTitular"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdBancarizado]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdBancarizado]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdBancarizado]"
+                      name="IdBancarizado"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdBeneficiario]"
+                      dataType="i4"
+                      name="IdBeneficiario" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaInscripcionBeneficiario]"
+                      dataType="dbTimeStamp"
+                      name="FechaInscripcionBeneficiario" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[FechaUltimoBeneficioAsignado]"
+                      dataType="dbTimeStamp"
+                      name="FechaUltimoBeneficioAsignado" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[CantidadDeBeneficiarios]"
+                      dataType="i4"
+                      name="CantidadDeBeneficiarios" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdMunicipio]"
+                      dataType="i4"
+                      name="IdMunicipio" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdDiscapacidad]"
+                      dataType="i4"
+                      name="IdDiscapacidad" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdEstadoBeneficiario]"
+                      dataType="i4"
+                      name="IdEstadoBeneficiario" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdEtnia]"
+                      dataType="i4"
+                      name="IdEtnia" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdGenero]"
+                      dataType="i4"
+                      name="IdGenero" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdNivelEscolaridad]"
+                      dataType="i4"
+                      name="IdNivelEscolaridad" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdRangoBeneficioConsolidadoAsignado]"
+                      dataType="i4"
+                      name="IdRangoBeneficioConsolidadoAsignado" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdRangoEdad]"
+                      dataType="i4"
+                      name="IdRangoEdad" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdRangoUltimoBeneficioAsignado]"
+                      dataType="i4"
+                      name="IdRangoUltimoBeneficioAsignado" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdTipoAsignacionBeneficio]"
+                      dataType="i4"
+                      name="IdTipoAsignacionBeneficio" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdTipoDocumento]"
+                      dataType="i4"
+                      name="IdTipoDocumento" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdTipoPoblacion]"
+                      dataType="i4"
+                      name="IdTipoPoblacion" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdTitular]"
+                      dataType="i4"
+                      name="IdTitular" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].ExternalColumns[IdBancarizado]"
+                      dataType="i4"
+                      name="IdBancarizado" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdBeneficiario]"
+                      dataType="i4"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdBeneficiario]"
+                      name="IdBeneficiario" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[FechaInscripcionBeneficiario]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[FechaInscripcionBeneficiario]"
+                      name="FechaInscripcionBeneficiario" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[FechaUltimoBeneficioAsignado]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[FechaUltimoBeneficioAsignado]"
+                      name="FechaUltimoBeneficioAsignado" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[CantidadDeBeneficiarios]"
+                      dataType="i4"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[CantidadDeBeneficiarios]"
+                      name="CantidadDeBeneficiarios" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdMunicipio]"
+                      dataType="i4"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdMunicipio]"
+                      name="IdMunicipio" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdDiscapacidad]"
+                      dataType="i4"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdDiscapacidad]"
+                      name="IdDiscapacidad" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdEstadoBeneficiario]"
+                      dataType="i4"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdEstadoBeneficiario]"
+                      name="IdEstadoBeneficiario" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdEtnia]"
+                      dataType="i4"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdEtnia]"
+                      name="IdEtnia" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdGenero]"
+                      dataType="i4"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdGenero]"
+                      name="IdGenero" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdNivelEscolaridad]"
+                      dataType="i4"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdNivelEscolaridad]"
+                      name="IdNivelEscolaridad" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdRangoBeneficioConsolidadoAsignado]"
+                      dataType="i4"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdRangoBeneficioConsolidadoAsignado]"
+                      name="IdRangoBeneficioConsolidadoAsignado" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdRangoEdad]"
+                      dataType="i4"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdRangoEdad]"
+                      name="IdRangoEdad" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdRangoUltimoBeneficioAsignado]"
+                      dataType="i4"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdRangoUltimoBeneficioAsignado]"
+                      name="IdRangoUltimoBeneficioAsignado" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdTipoAsignacionBeneficio]"
+                      dataType="i4"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdTipoAsignacionBeneficio]"
+                      name="IdTipoAsignacionBeneficio" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdTipoDocumento]"
+                      dataType="i4"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdTipoDocumento]"
+                      name="IdTipoDocumento" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdTipoPoblacion]"
+                      dataType="i4"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdTipoPoblacion]"
+                      name="IdTipoPoblacion" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdTitular]"
+                      dataType="i4"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdTitular]"
+                      name="IdTitular" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdBancarizado]"
+                      dataType="i4"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[IdBancarizado]"
+                      name="IdBancarizado" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactBeneficiario\FamiliasFactBeneficiario"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="FamiliasFactBeneficiario"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."FactBeneficiario"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.FamiliasDim.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.FamiliasDim.sa]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].Columns[IdBeneficiario]"
+                      cachedDataType="i4"
+                      cachedName="IdBeneficiario"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdBeneficiario]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdBeneficiario]" />
+                    <inputColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].Columns[FechaInscripcionBeneficiario]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaInscripcionBeneficiario"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[FechaInscripcionBeneficiario]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[FechaInscripcionBeneficiario]" />
+                    <inputColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].Columns[FechaUltimoBeneficioAsignado]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaUltimoBeneficioAsignado"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[FechaUltimoBeneficioAsignado]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[FechaUltimoBeneficioAsignado]" />
+                    <inputColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].Columns[CantidadDeBeneficiarios]"
+                      cachedDataType="i4"
+                      cachedName="CantidadDeBeneficiarios"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[CantidadDeBeneficiarios]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[CantidadDeBeneficiarios]" />
+                    <inputColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].Columns[IdMunicipio]"
+                      cachedDataType="i4"
+                      cachedName="IdMunicipio"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdMunicipio]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdMunicipio]" />
+                    <inputColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].Columns[IdDiscapacidad]"
+                      cachedDataType="i4"
+                      cachedName="IdDiscapacidad"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdDiscapacidad]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdDiscapacidad]" />
+                    <inputColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].Columns[IdEstadoBeneficiario]"
+                      cachedDataType="i4"
+                      cachedName="IdEstadoBeneficiario"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdEstadoBeneficiario]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdEstadoBeneficiario]" />
+                    <inputColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].Columns[IdEtnia]"
+                      cachedDataType="i4"
+                      cachedName="IdEtnia"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdEtnia]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdEtnia]" />
+                    <inputColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].Columns[IdGenero]"
+                      cachedDataType="i4"
+                      cachedName="IdGenero"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdGenero]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdGenero]" />
+                    <inputColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].Columns[IdNivelEscolaridad]"
+                      cachedDataType="i4"
+                      cachedName="IdNivelEscolaridad"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdNivelEscolaridad]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdNivelEscolaridad]" />
+                    <inputColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].Columns[IdRangoBeneficioConsolidadoAsignado]"
+                      cachedDataType="i4"
+                      cachedName="IdRangoBeneficioConsolidadoAsignado"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRangoBeneficioConsolidadoAsignado]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdRangoBeneficioConsolidadoAsignado]" />
+                    <inputColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].Columns[IdRangoEdad]"
+                      cachedDataType="i4"
+                      cachedName="IdRangoEdad"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRangoEdad]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdRangoEdad]" />
+                    <inputColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].Columns[IdRangoUltimoBeneficioAsignado]"
+                      cachedDataType="i4"
+                      cachedName="IdRangoUltimoBeneficioAsignado"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRangoUltimoBeneficioAsignado]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdRangoUltimoBeneficioAsignado]" />
+                    <inputColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].Columns[IdTipoPoblacion]"
+                      cachedDataType="i4"
+                      cachedName="IdTipoPoblacion"
+                      externalMetadataColumnId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdTipoPoblacion]"
+                      lineageId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET].Columns[IdTipoPoblacion]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdBeneficiario]"
+                      dataType="i4"
+                      name="IdBeneficiario" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[FechaInscripcionBeneficiario]"
+                      dataType="dbTimeStamp"
+                      name="FechaInscripcionBeneficiario" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[FechaUltimoBeneficioAsignado]"
+                      dataType="dbTimeStamp"
+                      name="FechaUltimoBeneficioAsignado" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[CantidadDeBeneficiarios]"
+                      dataType="i4"
+                      name="CantidadDeBeneficiarios" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdMunicipio]"
+                      dataType="i4"
+                      name="IdMunicipio" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdDiscapacidad]"
+                      dataType="i4"
+                      name="IdDiscapacidad" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdEstadoBeneficiario]"
+                      dataType="i4"
+                      name="IdEstadoBeneficiario" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdEtnia]"
+                      dataType="i4"
+                      name="IdEtnia" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdGenero]"
+                      dataType="i4"
+                      name="IdGenero" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdNivelEscolaridad]"
+                      dataType="i4"
+                      name="IdNivelEscolaridad" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRangoBeneficioConsolidadoAsignado]"
+                      dataType="i4"
+                      name="IdRangoBeneficioConsolidadoAsignado" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRangoEdad]"
+                      dataType="i4"
+                      name="IdRangoEdad" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRangoUltimoBeneficioAsignado]"
+                      dataType="i4"
+                      name="IdRangoUltimoBeneficioAsignado" />
+                    <externalMetadataColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdTipoPoblacion]"
+                      dataType="i4"
+                      name="IdTipoPoblacion" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactBeneficiario\FamiliasFactBeneficiario.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactBeneficiario\FamiliasFactBeneficiario.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactBeneficiario\FamiliasFactBeneficiario.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\FactBeneficiario.Paths[Salida de origen de ADO NET]"
+              endId="Package\FactBeneficiario\FamiliasFactBeneficiario.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\FactBeneficiario\FamiliasDWHBeneficiario.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\reset index"
+      DTS:CreationName="Microsoft.DbMaintenanceTSQLExecuteTask"
+      DTS:Description="Tarea Ejecutar instrucción T-SQL"
+      DTS:DTSID="{729424d4-84fa-4bc4-b6f9-8e02ecda56aa}"
+      DTS:ExecutableType="Microsoft.DbMaintenanceTSQLExecuteTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="reset index"
+      DTS:TaskContact="Execute T-SQL Statement Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0CFD0455-8438-4C9E-AEBF-95C95528E7BE}"
+          SQLTask:SqlStatementSource="DBCC CHECKIDENT ('FactBeneficiario', RESEED, 0);&#xA;"
+          SQLTask:ServerVersion="9"
+          SQLTask:ExtendedLogging="True"
+          SQLTask:LocalConnectionForLogging=""
+          SQLTask:TaskName=""
+          SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{62F94F52-EA60-40FC-804F-CAEF8125BD13}"
+      DTS:From="Package\delete FactBeneficiario"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\reset index" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{5BEB5A55-A928-4F57-B319-2B7CDE38A718}"
+      DTS:From="Package\reset index"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\FactBeneficiario" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="191,42"
+          Id="Package\delete FactBeneficiario"
+          TopLeft="331,236" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\FactBeneficiario"
+          TopLeft="272.5,351.5" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\reset index"
+          TopLeft="158.5,271.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="331,257">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-39.5,35.5"
+              Start="0,0"
+              End="-32,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-15.75,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15.75,0"
+                    Point2="-19.75,0"
+                    Point3="-19.75,4" />
+                  <mssgle:LineSegment
+                    End="-19.75,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.75,31.5"
+                    Point2="-19.75,35.5"
+                    Point3="-23.75,35.5" />
+                  <mssgle:LineSegment
+                    End="-32,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="225,313.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="126.5,38"
+              Start="0,0"
+              End="126.5,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15"
+                    Point2="0,19"
+                    Point3="4,19" />
+                  <mssgle:LineSegment
+                    End="122.5,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="122.5,19"
+                    Point2="126.5,19"
+                    Point3="126.5,23" />
+                  <mssgle:LineSegment
+                    End="126.5,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\FactBeneficiario">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="199,42"
+          Id="Package\FactBeneficiario\FamiliasFactBeneficiario"
+          TopLeft="374,304" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\FactBeneficiario\FamiliasDWHBeneficiario"
+          TopLeft="302,151" />
+        <EdgeLayout
+          Id="Package\FactBeneficiario.Paths[Salida de origen de ADO NET]"
+          TopLeft="404,193">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="69.5,111"
+              Start="0,0"
+              End="69.5,103.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.5"
+                    Point2="0,55.5"
+                    Point3="4,55.5" />
+                  <mssgle:LineSegment
+                    End="65.5,55.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="65.5,55.5"
+                    Point2="69.5,55.5"
+                    Point3="69.5,59.5" />
+                  <mssgle:LineSegment
+                    End="69.5,103.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactBeneficiario\FamiliasDWHBeneficiario">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactBeneficiario\FamiliasFactBeneficiario">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

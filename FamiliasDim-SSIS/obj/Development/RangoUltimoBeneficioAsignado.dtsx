@@ -1,0 +1,452 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/23/2024 7:41:03 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-LMQN57T"
+  DTS:CreatorName="DESKTOP-LMQN57T\USER"
+  DTS:DTSID="{05E743D9-6D19-491A-A63C-3AA31108C168}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5467.0"
+  DTS:LocaleID="22538"
+  DTS:ObjectName="RangoUltimoBeneficioAsignado"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{B2BE91E0-962D-4872-B47B-7F83936E70BE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.FamiliasDim.sa]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{4633A5F0-40C7-42B2-A165-E0AA8FCBE097}"
+      DTS:ObjectName="localhost.FamiliasDim.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=FamiliasDim;Persist Security Info=True;Application Name=SSIS-Package-{4633A5F0-40C7-42B2-A165-E0AA8FCBE097}localhost.FamiliasDim.sa;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARSnQfc7hQk+bwl0eXdWJSgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACm3LMUyKEz+icxI8475akyzZiKOWUQR6ZtbpOytO1wLAAAAAAOgAAAAAIAACAAAADlwm9w/u8uUWP5N2ehfVbO5VRmbKj9bwYwk/nQnvpo2SAAAACBO0pb4OfT26LcvlIv0SEAEDBVGBJi+GKR4V9UTsHX9UAAAAANsvP+hOyF3Q1Zms8Qp0j7DhxX4yL4PndRBLio3DV9c08TGpYL9Cw+MMgOPyCnyuLxG4yzV/JBiyPCTZN94PKa</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.FamiliasDWH.sa]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{366C3838-F054-4FF8-AD9A-03534082C126}"
+      DTS:ObjectName="localhost.FamiliasDWH.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=FamiliasDWH;Persist Security Info=True;Application Name=SSIS-Package-{366C3838-F054-4FF8-AD9A-03534082C126}localhost.FamiliasDWH.sa;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARSnQfc7hQk+bwl0eXdWJSgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD0sE/w64Vt8lzq8OeeHBFzG1v7KjXsJJULdBofK54LtAAAAAAOgAAAAAIAACAAAAD5lXs9FxBrhcDfy0ndtwKThkrm6kgR/J8gNHuJ4lThbyAAAABbevrkEbTUslM8ZGdddhp6MkEPUFuGvvVWsRBA2Akz3kAAAAAiUhSiinTM+z31UYgLxOYU/P6E+jCiltMYhBK2RWnNDB0PNqa53C4JQvuFq61fHC5kDvJnCPgEa2VyqmraC382</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\delete RangoUltimoBeneficioAsignado"
+      DTS:CreationName="Microsoft.DbMaintenanceTSQLExecuteTask"
+      DTS:Description="Tarea Ejecutar instrucción T-SQL"
+      DTS:DTSID="{55078284-061F-46E5-80F0-0CA91D56427F}"
+      DTS:ExecutableType="Microsoft.DbMaintenanceTSQLExecuteTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="delete RangoUltimoBeneficioAsignado"
+      DTS:TaskContact="Execute T-SQL Statement Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4633A5F0-40C7-42B2-A165-E0AA8FCBE097}"
+          SQLTask:SqlStatementSource="delete from DimRangoUltimoBeneficioAsignado;"
+          SQLTask:ServerVersion="9"
+          SQLTask:ExtendedLogging="True"
+          SQLTask:LocalConnectionForLogging=""
+          SQLTask:TaskName=""
+          SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DimRangoUltimoBeneficioAsignado"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{D106DC6F-8EBA-40B3-914B-A344DF6B767F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DimRangoUltimoBeneficioAsignado">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDimRangoUltimoBeneficioAsignado"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="FamiliasDimRangoUltimoBeneficioAsignado"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DimRangoUltimoBeneficioAsignado"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDimRangoUltimoBeneficioAsignado.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.FamiliasDim.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.FamiliasDim.sa]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDimRangoUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDimRangoUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].Columns[IdRangoUltimoBeneficioAsignado]"
+                      cachedDataType="i4"
+                      cachedName="IdRangoUltimoBeneficioAsignado"
+                      externalMetadataColumnId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDimRangoUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRangoUltimoBeneficioAsignado]"
+                      lineageId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Outputs[Salida de origen de ADO NET].Columns[IdRangoUltimoBeneficioAsignado]" />
+                    <inputColumn
+                      refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDimRangoUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].Columns[RangoUltimoBeneficioAsignado]"
+                      cachedDataType="wstr"
+                      cachedLength="21"
+                      cachedName="RangoUltimoBeneficioAsignado"
+                      externalMetadataColumnId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDimRangoUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].ExternalColumns[RangoUltimoBeneficioAsignado]"
+                      lineageId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Outputs[Salida de origen de ADO NET].Columns[RangoUltimoBeneficioAsignado]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDimRangoUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].ExternalColumns[IdRangoUltimoBeneficioAsignado]"
+                      dataType="i4"
+                      name="IdRangoUltimoBeneficioAsignado" />
+                    <externalMetadataColumn
+                      refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDimRangoUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET].ExternalColumns[RangoUltimoBeneficioAsignado]"
+                      dataType="wstr"
+                      length="21"
+                      name="RangoUltimoBeneficioAsignado" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDimRangoUltimoBeneficioAsignado.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDimRangoUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDimRangoUltimoBeneficioAsignado.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDimRangoUltimoBeneficioAsignado.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDimRangoUltimoBeneficioAsignado.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDimRangoUltimoBeneficioAsignado.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="FamiliasDWHRangoUltimoBeneficioAsignado"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."RangoUltimoBeneficioAsignado"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.FamiliasDWH.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.FamiliasDWH.sa]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Outputs[Salida de origen de ADO NET].Columns[IdRangoUltimoBeneficioAsignado]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Outputs[Salida de origen de ADO NET].ExternalColumns[IdRangoUltimoBeneficioAsignado]"
+                      lineageId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Outputs[Salida de origen de ADO NET].Columns[IdRangoUltimoBeneficioAsignado]"
+                      name="IdRangoUltimoBeneficioAsignado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Outputs[Salida de origen de ADO NET].Columns[RangoUltimoBeneficioAsignado]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Outputs[Salida de origen de ADO NET].ExternalColumns[RangoUltimoBeneficioAsignado]"
+                      length="21"
+                      lineageId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Outputs[Salida de origen de ADO NET].Columns[RangoUltimoBeneficioAsignado]"
+                      name="RangoUltimoBeneficioAsignado"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Outputs[Salida de origen de ADO NET].ExternalColumns[IdRangoUltimoBeneficioAsignado]"
+                      dataType="i4"
+                      name="IdRangoUltimoBeneficioAsignado" />
+                    <externalMetadataColumn
+                      refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Outputs[Salida de origen de ADO NET].ExternalColumns[RangoUltimoBeneficioAsignado]"
+                      dataType="wstr"
+                      length="21"
+                      name="RangoUltimoBeneficioAsignado" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Outputs[Salida de error de origen de ADO NET].Columns[IdRangoUltimoBeneficioAsignado]"
+                      dataType="i4"
+                      lineageId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Outputs[Salida de error de origen de ADO NET].Columns[IdRangoUltimoBeneficioAsignado]"
+                      name="IdRangoUltimoBeneficioAsignado" />
+                    <outputColumn
+                      refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Outputs[Salida de error de origen de ADO NET].Columns[RangoUltimoBeneficioAsignado]"
+                      dataType="wstr"
+                      length="21"
+                      lineageId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Outputs[Salida de error de origen de ADO NET].Columns[RangoUltimoBeneficioAsignado]"
+                      name="RangoUltimoBeneficioAsignado" />
+                    <outputColumn
+                      refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DimRangoUltimoBeneficioAsignado.Paths[Salida de origen de ADO NET]"
+              endId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDimRangoUltimoBeneficioAsignado.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{A42444F4-2018-4B79-A5B4-95275B70DFEB}"
+      DTS:From="Package\delete RangoUltimoBeneficioAsignado"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\DimRangoUltimoBeneficioAsignado" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="267,42"
+          Id="Package\delete RangoUltimoBeneficioAsignado"
+          TopLeft="316,258" />
+        <NodeLayout
+          Size="254,42"
+          Id="Package\DimRangoUltimoBeneficioAsignado"
+          TopLeft="358.5,364.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="449.5,300">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36,64.5"
+              Start="0,0"
+              End="36,57">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.25"
+                    Point2="0,32.25"
+                    Point3="4,32.25" />
+                  <mssgle:LineSegment
+                    End="32,32.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32,32.25"
+                    Point2="36,32.25"
+                    Point3="36,36.25" />
+                  <mssgle:LineSegment
+                    End="36,57" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DimRangoUltimoBeneficioAsignado">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="301,42"
+          Id="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado"
+          TopLeft="394,187" />
+        <NodeLayout
+          Size="295,42"
+          Id="Package\DimRangoUltimoBeneficioAsignado\FamiliasDimRangoUltimoBeneficioAsignado"
+          TopLeft="477,368" />
+        <EdgeLayout
+          Id="Package\DimRangoUltimoBeneficioAsignado.Paths[Salida de origen de ADO NET]"
+          TopLeft="544.5,229">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="80,139"
+              Start="0,0"
+              End="80,131.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,65.5"
+                    Point2="0,69.5"
+                    Point3="4,69.5" />
+                  <mssgle:LineSegment
+                    End="76,69.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="76,69.5"
+                    Point2="80,69.5"
+                    Point3="80,73.5" />
+                  <mssgle:LineSegment
+                    End="80,131.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimRangoUltimoBeneficioAsignado\FamiliasDimRangoUltimoBeneficioAsignado">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimRangoUltimoBeneficioAsignado\FamiliasDWHRangoUltimoBeneficioAsignado">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
